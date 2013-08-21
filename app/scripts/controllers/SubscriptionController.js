@@ -1,7 +1,7 @@
 CzHackathonPortal.SubscriptionController = Em.Controller.extend({
-    MAIL_U: '8db9d4741698c36d9a9ede601',
-    MAIL_ID: '7fcfb9fb29',
-    MAIL_PREFIX: 'http://sdflkjslkdfjalk.us7.list-manage1.com',
+    MAIL_U: '2a2c44025cf4b6d1ddf24be51',
+    MAIL_ID: '404fd162e8',
+    MAIL_PREFIX: 'http://posterous.us4.list-manage.com',
     submit: function() {
         // fetch form fields
         var mail = this.get('email');
