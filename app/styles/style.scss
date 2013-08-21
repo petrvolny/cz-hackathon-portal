@@ -1,7 +1,21 @@
 @import "bootstrap-sass/lib/bootstrap";
 
 ////////////////////////////////////////////////////////////////////////
-// layout
+// mixins
+
+@mixin clearfix($minHeight: 1px) {
+    min-height: $minHeight;
+    zoom: 1; // Turn on IE hasLayout property
+
+    &:after {
+        clear: both;
+        visibility: hidden;
+        display: block;
+        height: 0;
+        font-size: 0;
+        content: '.';
+    }
+}
 
 @mixin sandboxed() {
     box-sizing: border-box;
@@ -13,6 +27,7 @@ html, body, .app {
     height: 100%;
     margin: 0;
     padding: 0;
+    line-height: 1.5;
 }
 
 section {
@@ -22,6 +37,8 @@ section {
     overflow: hidden;
     width: 100%;
     min-height: 100%;
+    padding: 30px;
+    text-align: center;
     background: #ccc;
 
     h1,
@@ -31,9 +48,13 @@ section {
     }
 
     h2 {
-        margin: 1em 0;
+        margin: .5em 0 1em;
         font-size: 50px;
     }
+}
+
+.section-small {
+    min-height: 0;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -41,6 +62,7 @@ section {
 
 .hero {
     display: block;
+    text-align: left;
     color: #fff;
 
     &:after {
@@ -70,7 +92,6 @@ section {
     }
 }
 
-
 ////////////////////////////////////////////////////////////////////////
 // subscribe
 
@@ -80,7 +101,6 @@ section {
 }
 
 .subscribe {
-    text-align: center;
     color: #000;
     background: #ef6233;
 
@@ -177,6 +197,49 @@ section {
         &:active {
             @extend %no-outline;
             background: darken(#ac4625, 5%);
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////
+// superheroes
+
+.superheroes {
+    color: #fff;
+    background: #34495e;
+}
+
+.superheroes-items {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.superhero-item {
+    @include clearfix();
+    display: table-row;
+    text-align: left;
+
+    %cell {
+        display: table-cell;
+        padding-bottom: 30px;
+        vertical-align: middle;
+    }
+
+    > img {
+        @extend %cell;
+    }
+
+    > figcaption {
+        @extend %cell;
+        padding-left: 30px;
+        font-size: 20px;
+    }
+
+    &:last-of-type {
+        > img,
+        > figcaption {
+            padding-bottom: 0;
         }
     }
 }
