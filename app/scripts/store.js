@@ -1,4 +1,1 @@
-CzHackathonPortal.Store = DS.Store.extend({
-  revision: 13,
-  adapter: DS.FixtureAdapter.create()
-});
+// We do not use Ember data for now (it had version conflicts with the latest ember package)
