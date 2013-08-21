@@ -1,27 +1,41 @@
+/* globals Em, $, window */
 CzHackathonPortal.SubscriptionController = Em.Controller.extend({
+
+    registered: false,
+    unableToSubscribe: false,
+    msg: undefined,
+
     MAIL_U: '2a2c44025cf4b6d1ddf24be51',
     MAIL_ID: '404fd162e8',
     MAIL_PREFIX: 'http://posterous.us4.list-manage.com',
     submit: function() {
         // fetch form fields
-        var mail = this.get('email');
-        var first = this.get('first');
-        var last = this.get('last');
+        var mail = encodeURIComponent(this.get('email')),
+            first = encodeURIComponent(this.get('first')),
+            last = encodeURIComponent(this.get('last')),
+            data = "MERGE0=%@1&MERGE1=%@2&MERGE2=%@3".fmt(mail, first, last);
 
-        $.ajax({
+
+
+        Em.$.ajax({
             type: 'get',
             url: "%@1/subscribe/post-json?u=%@2&id=%@3&c=?".fmt(this.MAIL_PREFIX, this.MAIL_U, this.MAIL_ID),
-            data: "MERGE0=%@1&MERGE1=%@2&MERGE2=%@3".fmt(mail, first, last),
+            data        : data,
             cache       : false,
             dataType    : 'json',
             contentType: "application/json; charset=utf-8",
-            error       : function(err) { alert("Could not connect to the registration server. Please try again later."); },
+            error       : function(err) {
+                this.set('msg', 'Oops. Server error occured...');
+                this.set('unableToSubscribe', true);
+            },
             success     : function(data) {
-                if (data.result != "success") {
-                    // something went wrong, handle this
-                    alert(data.msg);
+                if (data.result !== 'success') {
+                    this.set('msg', data.msg);
+                    this.set('unableToSubscribe', true);
                 } else {
-                    alert('wohooooo, confirm your mail');
+                    this.set('msg', data.msg);
+                    this.set('registered', true);
+
 
                     // clear form fields
                     this.set('email', '');

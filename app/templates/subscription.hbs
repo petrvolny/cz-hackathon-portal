@@ -1,34 +1,50 @@
-<div class="subscribe-form">
-    <div class="form-items">
-        <div class="form-item">
-            <div class="form-item-text">
-                <label for="email">Email address:</label>
-            </div>
-            <div class="form-inputs">
-                {{view Ember.TextField valueBinding="email" name="email"}}
-            </div>
-        </div>
-
-        <div class="form-item">
-            <div class="form-item-text">
-                <label for="first">First name:</label>
-            </div>
-            <div class="form-inputs">
-                {{view Ember.TextField valueBinding="first" name="first"}}
-            </div>
-        </div>
-
-        <div class="form-item">
-            <div class="form-item-text">
-                <label for="last">Last name:</label>
-            </div>
-            <div class="form-inputs">
-                {{view Ember.TextField valueBinding="last" name="last"}}
-            </div>
+{{#if registered}}
+    <div class="subscribe-form">
+        <div class="form-items">
+            {{msg}}
         </div>
     </div>
+{{else}}
+    {{#if unableToSubscribe}}
+        <div class="subscribe-form">
+            <div class="form-items">
+                {{msg}}
+            </div>
+        </div>
+    {{else}}
+        <div class="subscribe-form">
+            <div class="form-items">
+                <div class="form-item">
+                    <div class="form-item-text">
+                        <label for="email">Email address:</label>
+                    </div>
+                    <div class="form-inputs">
+                        {{view Ember.TextField valueBinding="email" name="email"}}
+                    </div>
+                </div>
 
-    <div class="form-buttons">
-        <button type="submit" {{action "submit"}}>Subscribe to list</button>
-    </div>
-</div>
+                <div class="form-item">
+                    <div class="form-item-text">
+                        <label for="first">First name:</label>
+                    </div>
+                    <div class="form-inputs">
+                        {{view Ember.TextField valueBinding="first" name="first"}}
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <div class="form-item-text">
+                        <label for="last">Last name:</label>
+                    </div>
+                    <div class="form-inputs">
+                        {{view Ember.TextField valueBinding="last" name="last"}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit" {{action "submit"}}>Subscribe to list</button>
+            </div>
+        </div>
+    {{/if}}
+{{/if}}
