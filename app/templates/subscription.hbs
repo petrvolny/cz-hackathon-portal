@@ -2,28 +2,28 @@
     <div class="form-items">
         <div class="form-item">
             <div class="form-item-text">
-                <label for="subscribe-email">Email address:</label>
+                <label for="email">Email address:</label>
             </div>
             <div class="form-inputs">
-                <input type="text" id="subscribe-email" required>
+                {{view Ember.TextField valueBinding="email" name="email"}}
             </div>
         </div>
 
         <div class="form-item">
             <div class="form-item-text">
-                <label for="subscribe-firstName">First name:</label>
+                <label for="first">First name:</label>
             </div>
             <div class="form-inputs">
-                <input type="text" id="subscribe-firstName">
+                {{view Ember.TextField valueBinding="first" name="first"}}
             </div>
         </div>
 
         <div class="form-item">
             <div class="form-item-text">
-                <label for="subscribe-lastName">Last name:</label>
+                <label for="last">Last name:</label>
             </div>
             <div class="form-inputs">
-                <input type="text" id="subscribe-lastName">
+                {{view Ember.TextField valueBinding="last" name="last"}}
             </div>
         </div>
     </div>
