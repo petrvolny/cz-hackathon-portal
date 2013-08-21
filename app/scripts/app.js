@@ -1,4 +1,5 @@
-var CzHackathonPortal = window.CzHackathonPortal = Ember.Application.create();
+/* globals Em */
+var CzHackathonPortal = window.CzHackathonPortal = Em.Application.create();
 
 CzHackathonPortal.ApplicationView = Em.View.extend({
     classNames: ['app']
