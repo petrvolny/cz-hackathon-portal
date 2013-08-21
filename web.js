@@ -5,6 +5,9 @@ app.use(express.logger());
 app.use(express.bodyParser());
 app.use(express.static(__dirname+'/dist'));
 
+app.get('/', function(request, response) {
+  response.render('index.html');
+});
 // app.post('/subscribe', mailchimp.addSubscriber);
 
 var port = process.env.PORT || 5000;
