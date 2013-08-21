@@ -1,3 +1,2 @@
 CzHackathonPortal.Router.map(function () {
-  
 });
