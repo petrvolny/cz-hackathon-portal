@@ -1,5 +1,9 @@
 var CzHackathonPortal = window.CzHackathonPortal = Ember.Application.create();
 
+CzHackathonPortal.ApplicationView = Em.View.extend({
+    classNames: ['app']
+});
+
 /* Order and include as you please. */
 require('scripts/controllers/*');
 require('scripts/store');

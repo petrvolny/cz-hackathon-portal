@@ -1,30 +1,80 @@
-<div>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <div class="brand">
-                    Your App
-                </div>
+        <section class="hero">
+            <h1>Czech<br> hackathon</h1>
+        </section>
+
+        <section class="description" id="description">
+            <div class="col-xs-12">
+                <h2>Cloud &amp; mobile</h2>
+                <p>The topics of the hackathon are cloud and mobile. Specifying topics this wide should give all the participants enough freedom to come up with great ideas. We, as organizers, will be there to support your projects and provide mentoring and help.</p>
+                <p>We believe, in order to have real fun, that the hackathon teams and ideas should orgranically arise from the interaction between participants right at the beginning of the event, so be prepared to give a perfect pitch ;)</p>
+                <p>During the hackathon we will take care of food, drinks and you will be allowed to use TechSquare facilities including a space to stay overnight.</p>
             </div>
-        </div>
-    </div>
-    <div class="container-fluid" id="main">
-        <div class="row-fluid">
-            <div>
-                <div class="span3">
-                    <div class="well sidebar-nav">
-                        <span class="nav-header">Colors</span>
-                        <ul class="nav nav-list">
-                        {{#each item in controller}}
-                            <li>{{item}}</li>
-                        {{/each}}
-                        </ul>
+
+            <div class="col-xs-12">
+                <h2>Where</h2>
+                <address>
+                   <a href="http://www.techsquare.cz">TechSquare</a>, Křížová 2598/4, 150 00 Praha 5
+                </address>
+                <!--iframe width='100%' height='240' frameBorder='0' src='http://a.tiles.mapbox.com/v3/petrvolny.map-1sokhw4d.html#12/50.07102330352104/14.42178726196289'></iframe-->
+            </div>
+        </section>
+
+        <section class="subscribe" id="subscribe">
+            <h2>Keep me posted</h2>
+            <p>We will keep you posted about the development of the upcoming Czech Hackathon event.</p>
+
+            <form action="#" class="subscribe-form">
+                <div class="form-items">
+                    <div class="form-item">
+                        <div class="form-item-text">
+                            <label for="subscribe-email">Email address:</label>
+                        </div>
+                        <div class="form-inputs">
+                            <input type="text" id="subscribe-email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="form-item-text">
+                            <label for="subscribe-firstName">First name:</label>
+                        </div>
+                        <div class="form-inputs">
+                            <input type="text" id="subscribe-firstName">
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="form-item-text">
+                            <label for="subscribe-lastName">Last name:</label>
+                        </div>
+                        <div class="form-inputs">
+                            <input type="text" id="subscribe-lastName">
+                        </div>
                     </div>
                 </div>
-                <div class="span9">
-                    {{outlet}}
+
+                <div class="form-buttons">
+                    <button type="submit">Subscribe to list</button>
                 </div>
-            </div>
+            </form>
+        </section>
+
+        <section class="superheroes" id="superheroes">
+            Social feed
+        </section>
+
+        <section class="social" id="social">
+            Projects
+        </section>
+
+        <!--div class="row">
+            We need you
         </div>
-    </div>
-</div>
+
+        <div class="row">
+            Speakers / super heroes
+        </div>
+
+        <div class="row">
+            Sponsors
+        </div-->
