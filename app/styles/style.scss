@@ -162,7 +162,6 @@ section {
         z-index: 2;
         font-size: 80px;
     }
-
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -173,6 +172,12 @@ section {
     margin: 0 auto;
 
     font-size: 20px;
+
+    .social-icons {
+        font-size: 50px;
+        letter-spacing: 1em;
+    }
+
 }
 
 

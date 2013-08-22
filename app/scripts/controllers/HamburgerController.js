@@ -12,6 +12,7 @@ CzHackathonPortal.HamburgerController = Em.Controller.extend({
         $(document.body).animate({
             "scrollTop": $("#"+id).offset().top
         }, 1000, "swing");
+        this.set('collapsed', true);
     },
 
     toggleHamburger: function() {
