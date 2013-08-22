@@ -15,8 +15,6 @@ CzHackathonPortal.SubscriptionController = Em.Controller.extend({
             last = encodeURIComponent(this.get('last')),
             data = "MERGE0=%@1&MERGE1=%@2&MERGE2=%@3".fmt(mail, first, last);
 
-
-
         Em.$.ajax({
             type: 'get',
             url: "%@1/subscribe/post-json?u=%@2&id=%@3&c=?".fmt(this.MAIL_PREFIX, this.MAIL_U, this.MAIL_ID),
