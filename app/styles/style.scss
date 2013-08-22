@@ -93,6 +93,18 @@ section {
 }
 
 ////////////////////////////////////////////////////////////////////////
+// description
+
+.description-content {
+    width: 725px;
+    margin: 0 auto;
+
+    font-size: 20px;
+}
+
+
+
+////////////////////////////////////////////////////////////////////////
 // subscribe
 
 %no-outline {
@@ -240,6 +252,31 @@ section {
         > img,
         > figcaption {
             padding-bottom: 0;
+        }
+    }
+}
+
+.photoItems {
+    @include clearfix();
+    margin-bottom: 25px;
+
+    > li {
+        display: block;
+
+        > a {
+            float: left;
+            width: 140px;
+            height: 140px;
+            margin: 0 10px 10px 0;
+            background: #000;
+            @include transition(.2s background ease-in-out);
+
+            img {
+                display: block;
+                // max-width: 140px;
+                // max-height: 140px;
+                vertical-align: middle;
+            }
         }
     }
 }
