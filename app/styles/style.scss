@@ -57,6 +57,21 @@ section {
     min-height: 0;
 }
 
+.hamburger {
+    display: block;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.2);
+    top: 40px;
+    left: 40px;
+    z-index: 100;
+
+    &:hover {
+        background: rgba(255,255,255,0.5);
+    }
+}
+
 ////////////////////////////////////////////////////////////////////////
 // hero unit
 
@@ -89,6 +104,21 @@ section {
         left: 50px;
         z-index: 2;
         font-size: 70px;
+    }
+
+    .nav-arrow {
+        display: block;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: rgba(255,255,255,0.2);
+        right: 40px;
+        bottom: 40px;
+        z-index: 100;
+
+        &:hover {
+            background: rgba(255,255,255,0.5);
+        }
     }
 }
 
