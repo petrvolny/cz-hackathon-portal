@@ -1,11 +1,6 @@
-        <section class="hero">
-            <div class="hamburger">
-                <i class="icon-arrow-right"></i>
-            </div>
+        <section class="hero" id="hero">
+            {{render hamburger}}
             <h1>Czech<br> hackathon</h1>
-            <div class="nav-arrow">
-                <i class="icon-arrow-down"></i>
-            </div>
         </section>
 
         <section class="description section-small" id="description">
@@ -51,8 +46,11 @@
         </section>
 
         <section class="social" id="social">
-            <h2>Be Social</h2>
-            {{render twitter}}
+            <h2>#czechhackathon</h2>
+
+            <a class="twitter-timeline" href="https://twitter.com/search?q=%23hackathon" data-widget-id="370514385275330560">Tweets about "#hackathon"</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
             {{render photos}}
         </section>
 
