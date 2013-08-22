@@ -67,6 +67,12 @@ section {
     left: 40px;
     z-index: 100;
 
+    i {
+        padding-left: 26px;
+        padding-top: 26px;
+        font-size: 60px;
+    }
+
     &:hover {
         background: rgba(255,255,255,0.5);
     }
@@ -115,6 +121,12 @@ section {
         right: 40px;
         bottom: 40px;
         z-index: 100;
+
+        i {
+            padding-top: 26px;
+            padding-left: 26px;
+            font-size: 60px;
+        }
 
         &:hover {
             background: rgba(255,255,255,0.5);
