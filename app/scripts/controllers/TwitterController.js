@@ -1,3 +1,4 @@
+/* globals Em, $ */
 CzHackathonPortal.TwitterController = Ember.Controller.extend({
 
     twitterQuery: 'http://search.twitter.com/search.json?q=hackathon',
