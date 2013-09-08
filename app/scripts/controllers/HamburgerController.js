@@ -11,7 +11,7 @@ CzHackathonPortal.HamburgerController = Em.Controller.extend({
     scrollTo: function(id) {
         $(document.body).animate({
             "scrollTop": $("#"+id).offset().top
-        }, 1000, "swing");
+        }, 600, "swing");
         this.set('collapsed', true);
     },
 
@@ -23,11 +23,11 @@ CzHackathonPortal.HamburgerController = Em.Controller.extend({
         var collapsed = this.get('collapsed');
 
         if (collapsed) {
-            $('.hamburger-arrow').animate({left: '30px'}, 700);
-            $('.hamburger-content').animate({left: '-270px'}, 700);
+            $('.hamburger-arrow').animate({left: '0px'}, 200);
+            $('.hamburger-content').animate({left: '-270px'}, 200);
         } else {
-            $('.hamburger-arrow').animate({left: '300px'}, 700);
-            $('.hamburger-content').animate({left: '0px'}, 700);
+            $('.hamburger-arrow').animate({left: '-100px'}, 200);
+            $('.hamburger-content').animate({left: '0px'}, 200);
         }
     }.observes('collapsed')
 });
