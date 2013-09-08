@@ -129,9 +129,8 @@ section {
 }
 
 ////////////////////////////////////////////////////////////////////////
-// map unit
-.map {
-    color: #fff;
+// wide unit
+.wide {
     width: 100%;
     padding: 0;
 }
@@ -374,4 +373,38 @@ section {
             }
         }
     }
+}
+
+////////////////////////////////////////////////////////////////////////
+// sponsors
+
+.sponsor-box {
+    float: left;
+    display: inline;
+    width: 20%;
+    height: 15vw;
+    line-height: 15vw;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 2.5vw;
+    color: #fff;
+}
+
+.sponsor {
+}
+
+.kerio {
+    background: rgb(1,52,116);
+}
+.gooddata {
+    background: rgb(102,152,187);
+}
+.geewa {
+    background: rgb(0,163,225);
+}
+.inmite {
+    background: rgb(147,188,40);
+}
+.socialbakers {
+    background: rgb(134,18,118);
 }
