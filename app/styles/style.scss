@@ -120,7 +120,7 @@ section {
 
     i {
         padding-top: 26px;
-        padding-left: 26px;
+        padding-left: 23px;
         font-size: 60px;
     }
 
@@ -194,7 +194,11 @@ section {
 
     .social-icons {
         font-size: 50px;
-        letter-spacing: 1em;
+        letter-spacing: 0.5em;
+        a {
+            text-decoration: none;
+            color: #333;
+        }
     }
 
 }
