@@ -155,7 +155,7 @@ section {
 .navigation-scroll {
     @extend %arrow;
     position: absolute;
-    right: 30px;
+    right: 0px;
     bottom: 40px;
 
     &:hover,
@@ -195,18 +195,25 @@ section {
     h1 {
         position: absolute;
         z-index: 2;
-        font-size: 80px;
+        font-size: 70px;
         background-color: #000;
-        padding-left: 30px;
         padding-right: 20px;
 
         &.czech {
             bottom: 140px;
             left: 0px;
+            padding-left: 30px;
         }
         &.hackathon {
             bottom: 30px;
             left: 00px;
+            padding-left: 30px;
+        }
+        &.date-info {
+            top: 30px;
+            right: 0px;
+            padding-right: 30px;
+            padding-left: 20px;
         }
     }
 }
