@@ -1,5 +1,5 @@
         <section class="hero" id="hero">
-            {{render hamburger}}
+            {{render navigation}}
             <h1 class="czech">Czech</h1>
             <br>
             <h1 class="hackathon">Hackathon</h1>
@@ -69,36 +69,38 @@
         <section class="social section-small" id="social">
             <h2>#czechhackathon</h2>
 
-            <a class="twitter-timeline" href="https://twitter.com/search?q=%23hackathon" data-widget-id="370514385275330560">Tweets about "#hackathon"</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            <div class="l-full">
+                <div class="feed l-aside">
+                    <a class="twitter-timeline" href="https://twitter.com/search?q=%23hackathon" data-widget-id="370514385275330560">Tweets about "#hackathon"</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
 
-            {{render photos}}
+                <div class="l-content">
+                    {{render photos}}
+                </div>
+            </div>
         </section>
 
-        <section class="wide section-small" id="map">
+        <section class="map section-small section-fullSize" id="map">
+            <address class="map-address">
+                Techsquare,<br>
+                <strong>Křížová</strong> 2598 / <strong>4</strong>,<br>
+                150 00 <strong>Praha 5</strong>
+            </address>
             <iframe width="100%" height="400" frameborder="0" src="http://a.tiles.mapbox.com/v3/petrvolny.map-1sokhw4d.html#12/50.07102330352104/14.42178726196289"></iframe>
         </section>
 
-        <section class="wide section-small" id="sponsors">
-            <a href="http://www.gooddata.com"><div class="gooddata sponsor-box">GoodData</div></a>
-            <a href="http://www.kerio.com"><div class="kerio sponsor-box"><p>Kerio</p></div>
-            <a href="http://corporate.geewa.com"><div class="geewa sponsor-box">Geewa</div>
-            <a href="http://www.inmite.com"><div class="inmite sponsor-box">Inmite</div>
-            <a href="http://www.socialbakers.com"><div class="socialbakers sponsor-box">Socialbakers</div>
+        <section class="section-small section-fullSize" id="sponsors">
+            <ul class="sponsors">
+                <li><a href="#" class="sponsor-gooddata">GoodData</a></li>
+                <li><a href="#" class="sponsor-kerio">Kerio</a></li>
+                <li><a href="#" class="sponsor-geewa">Geewa</a></li>
+                <li><a href="#" class="sponsor-inmite">Inmite</a></li>
+                <li><a href="#" class="sponsor-socialbakers">Socialbakers</a></li>
+            </ul>
         </section>
 
-        <section class="wide footer section-small" id="footer">
-            <h1>Czech Hackathon!</h1>
+        <section class="footer section-small section-fullSize" id="footer">
+            <h2 class="l-prev">Czech Hackathon!</h2>
+            <img src="images/avatar/cat.jpg" width="78" height="78" alt="Hacking cat" class="l-next">
         </section>
-
-        <!--div class="row">
-            We need you
-        </div>
-
-        <div class="row">
-            Speakers / super heroes
-        </div>
-
-        <div class="row">
-            Sponsors
-        </div-->

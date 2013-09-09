@@ -1,5 +1,5 @@
-<div class="hamburger-content">
-    <ul class="section-list">
+<div class="navigation">
+    <ul class="navigation-list">
         <li class="section-item" {{action "scrollTo" "hero"}}>The Cat</li>
         <li class="section-item" {{action "scrollTo" "description"}}>Description</li>
         <li class="section-item" {{action "scrollTo" "topics"}}>Topics</li>
@@ -9,10 +9,6 @@
         <li class="section-item" {{action "scrollTo" "map"}}>Map</li>
     </ul>
 </div>
-<div class="hamburger-arrow" {{action "toggleHamburger"}}>
 
-        <i {{bindAttr class="collapsed:icon-arrow-right:icon-arrow-left"}}></i>
-</div>
-<div class="nav-arrow" {{action "scrollDown"}}>
-    <i class="icon-arrow-down"></i>
-</div>
+<a href="#" {{bindAttr class=":navigation-arrow collapsed:icon-arrow-right:icon-arrow-left"}} {{action "toggleNavigation"}}></a>
+<a href="#" class="navigation-scroll icon-arrow-down" {{action "scrollDown"}}></a>

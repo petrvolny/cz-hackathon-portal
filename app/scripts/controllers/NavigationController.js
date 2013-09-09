@@ -1,5 +1,5 @@
 /* globals Em, $ */
-CzHackathonPortal.HamburgerController = Em.Controller.extend({
+CzHackathonPortal.NavigationController = Em.Controller.extend({
     collapsed: true,
 
     scrollDown: function() {
@@ -15,7 +15,7 @@ CzHackathonPortal.HamburgerController = Em.Controller.extend({
         this.set('collapsed', true);
     },
 
-    toggleHamburger: function() {
+    toggleNavigation: function() {
         this.set('collapsed', !this.get('collapsed'));
     },
 
@@ -23,11 +23,11 @@ CzHackathonPortal.HamburgerController = Em.Controller.extend({
         var collapsed = this.get('collapsed');
 
         if (collapsed) {
-            $('.hamburger-arrow').animate({left: '0px'}, 200);
-            $('.hamburger-content').animate({left: '-270px'}, 200);
+            $('.navigation-arrow').animate({left: '0px'}, 200);
+            $('.navigation').animate({left: '-270px'}, 200);
         } else {
-            $('.hamburger-arrow').animate({left: '-100px'}, 200);
-            $('.hamburger-content').animate({left: '0px'}, 200);
+            $('.navigation-arrow').animate({left: '-100px'}, 200);
+            $('.navigation').animate({left: '0px'}, 200);
         }
     }.observes('collapsed')
 });

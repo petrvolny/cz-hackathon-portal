@@ -21,6 +21,29 @@
     box-sizing: border-box;
 }
 
+.l-prev {
+    float: left;
+}
+
+.l-next {
+    float: right;
+}
+
+.l-full {
+    width: 950px;
+    margin: 0 auto;
+}
+
+.l-aside {
+    float: left;
+    width: 300px;
+}
+
+.l-content {
+    float: right;
+    width: 625px;
+}
+
 ////////////////////////////////////////////////////////////////////////
 
 html, body, .app {
@@ -31,6 +54,7 @@ html, body, .app {
 }
 
 section {
+    @include clearfix();
     @include sandboxed();
 
     position: relative;
@@ -57,85 +81,89 @@ section {
     min-height: 0;
 }
 
-.hamburger-content {
-    display: block;
-    position: fixed;
-    width: 270px;
-    height: 100%;
-    background: rgba(255,255,255,0.8);
-    color: #000;
-    top: 30px;
-    left: -270px;
-    z-index: 100;
-
-    .section-list {
-        width: 100%;
-    }
-
-    .section-item {
-        width: 235px;
-        height: 60px;
-        list-style: none;
-        text-align: left;
-        padding-top: 20px;
-        padding-left: 10px;
-        font-size: 30px;
-
-        &:hover {
-            background: rgba(255,255,255,0.5);
-        }
-    }
-}
-
-.hamburger-arrow {
-    display: block;
-    position: fixed;
-    width: 100px;
-    height: 100px;
-    background: rgba(0,0,0,1);
-    top: 30px;
-    left: 0px;
-    z-index: 99;
-
-    i {
-        padding-left: 26px;
-        padding-top: 26px;
-        font-size: 60px;
-    }
-
-    &:hover {
-        background: rgba(255,255,255,0.8);
-    }
-}
-
-.nav-arrow {
-    display: block;
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: rgba(0,0,0,1);
-    right: 30px;
-    bottom: 40px;
-    z-index: 100;
-
-    i {
-        padding-top: 26px;
-        padding-left: 23px;
-        font-size: 60px;
-    }
-
-    &:hover {
-        background: rgba(255,255,255,0.5);
-    }
-}
-
-////////////////////////////////////////////////////////////////////////
-// wide unit
-.wide {
+.section-fullSize {
     width: 100%;
     padding: 0;
 }
 
+////////////////////////////////////////////////////////////////////////
+// navigation
+
+.navigation {
+    position: fixed;
+    top: 30px;
+    left: -270px;
+    z-index: 100;
+    display: block;
+    width: 270px;
+    height: 100%;
+    color: #000;
+    background: rgba(255, 255, 255, .8);
+}
+
+.navigation-list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    > li {
+        list-style: none;
+        padding: 20px 0 0 10px;
+        line-height: 60px;
+        text-align: left;
+        font-size: 30px;
+        cursor: pointer;
+
+        &:hover {
+            background: rgba(255, 255, 255, .5);
+        }
+    }
+}
+
+%arrow {
+    display: block;
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+    text-align: center;
+    line-height: 100px;
+    font-size: 60px;
+    color: #fff;
+    background: #000;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: #000;
+        text-decoration: none;
+    }
+}
+
+.navigation-arrow {
+    @extend %arrow;
+    position: fixed;
+    top: 30px;
+    left: 0px;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background: rgba(255,255,255, .8);
+    }
+}
+
+.navigation-scroll {
+    @extend %arrow;
+    position: absolute;
+    right: 30px;
+    bottom: 40px;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background: rgba(255,255,255, .5);
+    }
+}
 
 ////////////////////////////////////////////////////////////////////////
 // hero unit
@@ -145,7 +173,7 @@ section {
     text-align: left;
     color: #fff;
 
-    &:after {
+    &:before {
         position: absolute;
         left: 0;
         top: 0;
@@ -365,25 +393,25 @@ section {
     }
 }
 
-.photoItems {
+.photos {
     @include clearfix();
     margin-bottom: 25px;
+    padding: 0;
 
     > li {
+        float: left;
         display: block;
+        margin: 0 0 10px 10px;
+        list-style: none;
 
         > a {
-            float: left;
             width: 140px;
             height: 140px;
-            margin: 0 10px 10px 0;
             background: #000;
             @include transition(.2s background ease-in-out);
 
             img {
                 display: block;
-                // max-width: 140px;
-                // max-height: 140px;
                 vertical-align: middle;
             }
         }
@@ -391,51 +419,103 @@ section {
 }
 
 ////////////////////////////////////////////////////////////////////////
+// map
+
+.map {
+    position: relative;
+
+    iframe {
+        display: block;
+    }
+}
+
+.map-address {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 660px;
+    margin: 0 0 0 -350px;
+    padding: 20px;
+    line-height: 1.5;
+    text-align: right;
+    font-size: 30px;
+    color: #000;
+    background: #bdc3c7;
+}
+
+////////////////////////////////////////////////////////////////////////
 // sponsors
 
-.sponsor-box {
-    float: left;
-    display: inline;
-    width: 20%;
-    height: 15vw;
-    line-height: 15vw;
-    text-align: center;
+.sponsors {
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+
+    > li {
+        float: left;
+        width: 20%;
+        list-style: none;
+    }
+}
+
+%sponsor {
+    display: block;
+    height:  170px;
+    line-height: 170px;
     vertical-align: middle;
-    font-size: 2.5vw;
+    text-decoration: none;
+    font-size: 30px;
     color: #fff;
+
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: none;
+        color: #fff;
+        background: #000;
+    }
 }
 
-.sponsor {
+.sponsor-kerio {
+    @extend %sponsor;
+    background: rgb(1, 52, 116);
 }
 
-.kerio {
-    background: rgb(1,52,116);
+.sponsor-gooddata {
+    @extend %sponsor;
+    background: rgb(102, 152, 187);
 }
-.gooddata {
-    background: rgb(102,152,187);
+
+.sponsor-geewa {
+    @extend %sponsor;
+    background: rgb(0, 163, 225);
 }
-.geewa {
-    background: rgb(0,163,225);
+
+.sponsor-inmite {
+    @extend %sponsor;
+    background: rgb(147, 188, 40);
 }
-.inmite {
-    background: rgb(147,188,40);
-}
-.socialbakers {
-    background: rgb(134,18,118);
+
+.sponsor-socialbakers {
+    @extend %sponsor;
+    background: rgb(134, 18, 118);
 }
 
 ////////////////////////////////////////////////////////////////////////
 // footer
 
 .footer {
+    min-height: 78px;
+    padding: 45px;
+    line-height: 78px;
+    text-align: left;
     color: #fff;
     background: #34495e;
-    height: 150px;
 
-    h1 {
+    h2 {
+        margin: 0;
+        padding: 0 30px;
+        line-height: inherit;
         font-size: 50px;
-        float: left;
-        line-height: 130px;
-        padding-left: 30px;
     }
 }
