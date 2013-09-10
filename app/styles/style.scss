@@ -3,6 +3,10 @@
 ////////////////////////////////////////////////////////////////////////
 // mixins
 
+$phones: 480px;
+$tablets: 768px;
+$desktops: 992px;
+
 @mixin clearfix($minHeight: 1px) {
     min-height: $minHeight;
     zoom: 1; // Turn on IE hasLayout property
@@ -21,6 +25,29 @@
     box-sizing: border-box;
 }
 
+@mixin respond-to($media) {
+    @if $media == phones {
+        @media only screen and (max-width: $phones) {
+            @content;
+        }
+    }
+    @else if $media == tablets {
+        @media only screen and (min-width: $tablets + 1) and (max-width: $desktops - 1) {
+            @content;
+        }
+    }
+    @else if $media == handhelds {
+        @media only screen and (max-width: $desktops - 1) {
+            @content;
+        }
+    }
+    @else if $media == desktops {
+        @media only screen and (min-width: $desktops + 1) {
+            @content;
+        }
+    }
+}
+
 .l-prev {
     float: left;
 }
@@ -32,6 +59,10 @@
 .l-full {
     width: 950px;
     margin: 0 auto;
+
+    @include respond-to(handhelds) {
+        width: auto;
+    }
 }
 
 .l-aside {
@@ -44,6 +75,15 @@
     width: 625px;
 }
 
+.l-content,
+.l-aside {
+    @include respond-to(handhelds) {
+        float: none;
+        width: auto;
+        margin: 20px;
+    }
+}
+
 ////////////////////////////////////////////////////////////////////////
 
 html, body, .app {
@@ -51,6 +91,12 @@ html, body, .app {
     margin: 0;
     padding: 0;
     line-height: 1.5;
+}
+
+.container {
+    @include respond-to(handhelds) {
+        width: auto;
+    }
 }
 
 section {
@@ -74,6 +120,12 @@ section {
     h2 {
         margin: .5em 0 1em;
         font-size: 50px;
+    }
+
+    @include respond-to(handhelds) {
+        h2 {
+            font-size: 30px;
+        }
     }
 }
 
@@ -192,37 +244,54 @@ section {
         // -webkit-filter: contrast(90%);
     }
 
-    h1 {
-        position: absolute;
-        z-index: 2;
-        font-size: 70px;
-        background-color: #000;
-        padding-right: 20px;
-
-        &.czech {
-            bottom: 140px;
-            left: 0px;
-            padding-left: 30px;
-        }
-        &.hackathon {
-            bottom: 30px;
-            left: 00px;
-            padding-left: 30px;
-        }
-        &.date-info {
-            top: 30px;
-            right: 0px;
-            padding-right: 30px;
-            padding-left: 20px;
-        }
+    @include respond-to(handhelds) {
+        padding-top: 130px;
     }
+}
+
+%hero-headline {
+    position: absolute;
+    z-index: 2;
+    text-transform: uppercase;
+    font-size: 70px;
+    font-weight: bold;
+
+    span {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #000;
+    }
+
+    @include respond-to(handhelds) {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        bottom: auto !important;
+        right: auto !important;
+        font-size: 50px;
+    }
+}
+
+.event-name {
+    @extend %hero-headline;
+    bottom: 40px;
+    left: 0;
+    max-width: 500px;
+}
+
+.event-date {
+    @extend %hero-headline;
+    top: 30px;
+    right: 0;
 }
 
 ////////////////////////////////////////////////////////////////////////
 // description
 
 .description-content {
-    width: 725px;
+    max-width: 725px;
     margin: 0 auto;
 
     font-size: 20px;
@@ -237,8 +306,6 @@ section {
     }
 
 }
-
-
 
 ////////////////////////////////////////////////////////////////////////
 // subscribe
@@ -258,10 +325,15 @@ section {
 }
 
 .subscribe-form {
+    @include sandboxed();
     width: 725px;
     margin: 0 auto;
     padding: 25px;
     background: #d7582e;
+
+    @include respond-to(handhelds) {
+        width: 100%;
+    }
 }
 
 .form-items {
@@ -283,6 +355,14 @@ section {
     font-size: 25px;
 }
 
+.form-items,
+.form-item,
+%form-cell {
+    @include respond-to(handhelds) {
+        display: block;
+    }
+}
+
 .form-item-text {
     @extend %form-cell;
     width: 205px;
@@ -293,6 +373,10 @@ section {
         font-size: inherit;
         font-weight: bold;
         color: #000;
+    }
+
+    @include respond-to(handhelds) {
+        border: none;
     }
 }
 
@@ -321,6 +405,10 @@ section {
             color: #000;
         }
     }
+
+    @include respond-to(handhelds) {
+        padding: 0;
+    }
 }
 
 .form-buttons {
@@ -348,6 +436,8 @@ section {
         }
     }
 }
+
+
 ////////////////////////////////////////////////////////////////////////
 // topics
 
@@ -448,6 +538,13 @@ section {
     font-size: 30px;
     color: #000;
     background: #bdc3c7;
+
+    @include respond-to(handhelds) {
+        position: static;
+        width: auto;
+        margin: 0;
+        text-align: center;
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -462,6 +559,13 @@ section {
         float: left;
         width: 20%;
         list-style: none;
+    }
+
+    @include respond-to(handhelds) {
+        > li {
+            float: none;
+            width: auto;
+        }
     }
 }
 
@@ -480,6 +584,12 @@ section {
         text-decoration: none;
         color: #fff;
         background: #000;
+    }
+
+    @include respond-to(handhelds) {
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
     }
 }
 
@@ -524,5 +634,13 @@ section {
         padding: 0 30px;
         line-height: inherit;
         font-size: 50px;
+    }
+
+    @include respond-to(handhelds) {
+        padding: 20px;
+
+        h2 {
+            font-size: 30px;
+        }
     }
 }
