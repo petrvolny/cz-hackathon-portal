@@ -1,9 +1,5 @@
 @import "bootstrap-sass/lib/bootstrap";
 
-@font-face {
-    font-family: "Bebas";
-    src: url("../styles/fonts/BebasNeueu.otf") format("otf");
-}
 ////////////////////////////////////////////////////////////////////////
 // mixins
 
@@ -122,6 +118,7 @@ section {
     }
 
     h2 {
+        font-family: 'bebas_neueregular';
         margin: .5em 0 1em;
         font-size: 50px;
     }
@@ -228,7 +225,7 @@ section {
     display: block;
     text-align: left;
     color: #fff;
-    font-family: 'Bebas', Helvetica Neue;
+    font-family: 'bebas_neueregular', Helvetica Neue;
 
     &:before {
         position: absolute;
@@ -260,10 +257,10 @@ section {
     text-transform: uppercase;
     font-size: 70px;
     font-weight: bold;
+    letter-spacing: 3px;
 
     span {
         display: inline-block;
-        margin-top: 20px;
         padding: 10px 20px;
         color: #fff;
         background-color: #000;
