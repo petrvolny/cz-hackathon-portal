@@ -23,6 +23,7 @@ $desktops: 992px;
 
 @mixin sandboxed() {
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 @mixin respond-to($media) {
@@ -488,6 +489,7 @@ section {
 
     > img {
         @extend %cell;
+        max-width: none;
     }
 
     > figcaption {
