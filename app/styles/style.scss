@@ -90,7 +90,11 @@ html, body, .app {
     height: 100%;
     margin: 0;
     padding: 0;
-    line-height: 1.5;
+    line-height: 1.45;
+}
+
+p {
+    margin-bottom: 30px;
 }
 
 .container {
@@ -156,7 +160,7 @@ section {
 
 .navigation-list {
     width: 100%;
-    margin: 0;
+    margin: 0 0 0 16px;
     padding: 0;
 
     > li {
@@ -166,6 +170,7 @@ section {
         text-align: left;
         font-size: 30px;
         cursor: pointer;
+        width: 243px;
 
         &:hover {
             background: rgba(255, 255, 255, .5);
@@ -291,13 +296,20 @@ section {
 
 ////////////////////////////////////////////////////////////////////////
 // description
-
-.description-content {
+%description-class {
     max-width: 725px;
     margin: 0 auto;
 
     font-size: 25px;
+}
 
+.description-content {
+    @extend %description-class;
+    text-align: left;
+}
+
+.description-left {
+    @extend %description-class;
     .social-icons {
         font-size: 50px;
         letter-spacing: 0.5em;
@@ -306,7 +318,6 @@ section {
             color: #333;
         }
     }
-
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -332,6 +343,7 @@ section {
     margin: 0 auto;
     padding: 25px;
     background: #d7582e;
+    margin-bottom: 60px;
 
     @include respond-to(handhelds) {
         width: 100%;
