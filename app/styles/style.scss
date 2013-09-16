@@ -58,6 +58,7 @@ $desktops: 992px;
 }
 
 .l-full {
+    @include clearfix();
     width: 950px;
     margin: 0 auto;
 
@@ -297,6 +298,7 @@ section {
 
 ////////////////////////////////////////////////////////////////////////
 // description
+
 %description-class {
     max-width: 725px;
     margin: 0 auto;
@@ -461,7 +463,6 @@ section {
     background: #34495e;
 }
 
-
 ////////////////////////////////////////////////////////////////////////
 // superheroes
 
@@ -499,9 +500,20 @@ section {
     }
 }
 
+////////////////////////////////////////////////////////////////////////
+// social
+
+.social {
+    padding-bottom: 60px;
+
+    @include respond-to(handhelds) {
+        padding-bottom: 30px;
+    }
+}
+
 .photos {
     @include clearfix();
-    margin-bottom: 25px;
+    margin: 0;
     padding: 0;
 
     > li {
