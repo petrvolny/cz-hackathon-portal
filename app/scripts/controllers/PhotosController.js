@@ -1,7 +1,7 @@
 /* globals Em */
 CzHackathonPortal.PhotosController = Ember.Controller.extend({
 
-    nextPage: 'https://api.instagram.com/v1/tags/gdhackathon/media/recent?client_id=899426d0f7f445ff9f744fff5260e134',
+    nextPage: 'https://api.instagram.com/v1/tags/czhackathon/media/recent?client_id=899426d0f7f445ff9f744fff5260e134',
 
     content: [],
 
