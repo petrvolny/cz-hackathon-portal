@@ -475,6 +475,17 @@ section {
     display: table;
     table-layout: fixed;
     width: 100%;
+
+}
+
+.image-volny {
+    background: url('../images/petr_volny.png') no-repeat;
+}
+.image-homolka {
+    background: url('../images/martin_homolka.png') no-repeat;
+}
+.image-jezek {
+    background: url('../images/jan_jezek.png') no-repeat;
 }
 
 .superhero-item {
@@ -488,9 +499,11 @@ section {
         vertical-align: middle;
     }
 
-    > img {
+    .image {
         @extend %cell;
         max-width: none;
+        width: 120px;
+        height: 120px;
     }
 
     > figcaption {
@@ -670,4 +683,9 @@ section {
             font-size: 30px;
         }
     }
+}
+.cat-image {
+    background: url('../images/cat-avatar.jpg') no-repeat;
+    width: 78px;
+    height: 78px;
 }
