@@ -1,28 +1,23 @@
 var express = require("express");
+var url     = require("url");
 
 var app = express();
 app.use(express.logger());
 app.use(express.bodyParser());
-app.use(express.static(__dirname+'/dist'));
 app.use(function(req, res, next) {
-    var others = [
-            'czhackathon.herokuapp.com',
-            'czechhackathon.com',
-            'www.czechhackaton.cz',
-            //'www.czechhackathon.cz', // <-- the final one
-            'www.czechhackathon.com',
-            'czechhackaton.cz',
-            'czechhackathon.cz'
-        ],
-        host = req.headers.host.split(":")[0];
-    console.log("============ " + host + " ============");
-    if(others.filter(function(el, idx, ar) {
-        return el === host;
-    }).length !== 0) {
-        return res.send({'Location:': 'http://www.czechhackathon.cz' + req.url}, 301);
+    var redirect_url = "http://www.czechhackathon.cz",
+        redirect_host = url.parse(redirect_url).host,
+        requested_host = req.header("host").split(":")[0];
+
+    // console.log("=============== " + requested_host + " ===============");
+    if (requested_host === "localhost" || requested_host === redirect_host) {
+        next();
+    } else {
+        // console.log("===============R: " + redirect_url+req.path + " ===============");
+        res.redirect(301, redirect_url+req.path);
     }
-    next();
 });
+app.use(express.static(__dirname+'/dist'));
 
 app.get('/', function(request, response) {
   response.render('index.html');
