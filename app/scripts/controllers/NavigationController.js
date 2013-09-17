@@ -2,15 +2,17 @@
 CzHackathonPortal.NavigationController = Em.Controller.extend({
     collapsed: true,
 
+    $viewport: $('body,html'),
+
     scrollDown: function() {
-        $(document.body).animate({
-            "scrollTop": $("#description").offset().top
+        this.get('$viewport').animate({
+            scrollTop: $("#description").offset().top
         }, 1000, "swing");
     },
 
     scrollTo: function(id) {
-        $(document.body).animate({
-            "scrollTop": $("#"+id).offset().top
+        this.get('$viewport').animate({
+            scrollTop: $("#" + id).offset().top
         }, 600, "swing");
         this.set('collapsed', true);
     },

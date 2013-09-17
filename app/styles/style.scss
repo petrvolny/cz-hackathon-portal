@@ -23,6 +23,7 @@ $desktops: 992px;
 
 @mixin sandboxed() {
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 @mixin respond-to($media) {
@@ -57,6 +58,7 @@ $desktops: 992px;
 }
 
 .l-full {
+    @include clearfix();
     width: 950px;
     margin: 0 auto;
 
@@ -90,7 +92,11 @@ html, body, .app {
     height: 100%;
     margin: 0;
     padding: 0;
-    line-height: 1.5;
+    line-height: 1.45;
+}
+
+p {
+    margin-bottom: 30px;
 }
 
 .container {
@@ -156,7 +162,7 @@ section {
 
 .navigation-list {
     width: 100%;
-    margin: 0;
+    margin: 0 0 0 16px;
     padding: 0;
 
     > li {
@@ -166,6 +172,7 @@ section {
         text-align: left;
         font-size: 30px;
         cursor: pointer;
+        width: 243px;
 
         &:hover {
             background: rgba(255, 255, 255, .5);
@@ -237,7 +244,7 @@ section {
         height: 100%;
 
         background-color: #000;
-        background-image: url("http://gifalicious.net/images/be33d96e.cool-cat.gif");
+        background-image: url("../images/cool-cat.gif");
         background-size: 100% 100%;
 
         // -webkit-transform: scaleX(5) scaleY(-5);
@@ -292,12 +299,20 @@ section {
 ////////////////////////////////////////////////////////////////////////
 // description
 
-.description-content {
+%description-class {
     max-width: 725px;
     margin: 0 auto;
 
     font-size: 25px;
+}
 
+.description-content {
+    @extend %description-class;
+    text-align: left;
+}
+
+.description-left {
+    @extend %description-class;
     .social-icons {
         font-size: 50px;
         letter-spacing: 0.5em;
@@ -306,7 +321,6 @@ section {
             color: #333;
         }
     }
-
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -332,6 +346,7 @@ section {
     margin: 0 auto;
     padding: 25px;
     background: #d7582e;
+    margin-bottom: 60px;
 
     @include respond-to(handhelds) {
         width: 100%;
@@ -448,7 +463,6 @@ section {
     background: #34495e;
 }
 
-
 ////////////////////////////////////////////////////////////////////////
 // superheroes
 
@@ -476,6 +490,7 @@ section {
 
     > img {
         @extend %cell;
+        max-width: none;
     }
 
     > figcaption {
@@ -483,18 +498,22 @@ section {
         padding-left: 30px;
         font-size: 20px;
     }
+}
 
-    &:last-of-type {
-        > img,
-        > figcaption {
-            padding-bottom: 0;
-        }
+////////////////////////////////////////////////////////////////////////
+// social
+
+.social {
+    padding-bottom: 60px;
+
+    @include respond-to(handhelds) {
+        padding-bottom: 30px;
     }
 }
 
 .photos {
     @include clearfix();
-    margin-bottom: 25px;
+    margin: 0;
     padding: 0;
 
     > li {
@@ -546,6 +565,12 @@ section {
         width: auto;
         margin: 0;
         text-align: center;
+    }
+
+    .icon-map-marker {
+        font-size: 60px;
+        float: left;
+        margin-top: 10px;
     }
 }
 
