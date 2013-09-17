@@ -13,9 +13,11 @@ app.use(function(req, res, next) {
             'www.czechhackathon.com',
             'czechhackaton.cz',
             'czechhackathon.cz'
-        ];
+        ],
+        host = req.headers.host.split(":")[0];
+    console.log("============ " + host + " ============");
     if(others.filter(function(el, idx, ar) {
-        return el === req.headers.host;
+        return el === host;
     }).length !== 0) {
         return res.send({'Location:': 'http://www.czechhackathon.cz' + req.url}, 301);
     }
