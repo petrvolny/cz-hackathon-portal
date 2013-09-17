@@ -32,5 +32,8 @@
   },
   "engines": {
     "node": ">=0.8.0"
+  },
+  "scripts": {
+      "postinstall": "echo Disting ember app; ./node_modules/grunt/bin/grunt build"
   }
 }
