@@ -1,5 +1,15 @@
 @import "bootstrap-sass/lib/bootstrap";
 
+@font-face {
+    font-family: 'bebas_neueregular';
+    src: url('../styles/fonts/BebasNeue-webfont.eot');
+    src: url('../styles/fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../styles/fonts/BebasNeue-webfont.woff') format('woff'),
+         url('../styles/fonts/BebasNeue-webfont.ttf') format('truetype'),
+         url('../styles/fonts/BebasNeue-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 ////////////////////////////////////////////////////////////////////////
 // mixins
 
