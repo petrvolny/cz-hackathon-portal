@@ -595,6 +595,14 @@ section {
         float: left;
         margin-top: 10px;
     }
+
+    a {
+        color: #000;
+        &:hover {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////
