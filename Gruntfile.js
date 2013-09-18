@@ -369,6 +369,15 @@ module.exports = function (grunt) {
         'build'
     ]);
 
-    grunt.registerTask('heroku:development', 'build');
-    grunt.registerTask('heroku:production', 'build');
+    grunt.registerTask('bower_install', 'install the backend and frontend dependencies', function() {
+        var exec = require('child_process').exec;
+        var cb = this.async();
+        exec('bower install', {cwd: './'}, function(err, stdout, stderr) {
+            console.log(stdout);
+            cb();
+        });
+    });
+
+    grunt.registerTask('heroku:development', ['bower_install','build']);
+    grunt.registerTask('heroku:production', ['bower_install','build']);
 };
