@@ -21,41 +21,27 @@ exports.createSpProfile = (profileData, finalCallback) ->
 
   spClient = new SamepageClient
 
-  # 10. the end
+  # 8. the end
   logoutCallback = (err, data) ->
     throw err if err?
     finalCallback null, null
 
-  # 9. logout
-  addMemberCB = (err, data) ->
+  # 8. logout
+  changePermissionCB = (err, data) ->
     throw err if err?
     spClient.logout logoutCallback
 
-  # 8. add user to attendee group
-  addUserCB = (err, data) ->
-    throw err if err?
-
-    params =
-      groupId: process.env.SP_GROUP
-      list: [userId]
-
-    spClient.apiCall 'Groups.addMemberList', params, addMemberCB
-
-  # 7. add user ownership
-  overrideCB = (err, data) ->
+  # 7. change permissions
+  fetchPermissionCB = (err, data) ->
     throw err if err?
 
     result = data.result
+    for member in result.members
+      console.log member # XXX
 
-    params =
-      id: pageId
-      members:
-        id: userId
-        role: 'Admin'
+    changePermissionCB() # FIXME
 
-    spClient.apiCall 'Members.add', params, addUserCB
-
-  # 6. override permissions
+  # 6. fetch permissions
   usersCallback = (err, data) ->
     throw err if err?
 
@@ -68,10 +54,10 @@ exports.createSpProfile = (profileData, finalCallback) ->
     if userId is null
       throw new Error "User doesn't exist."
 
-    params =
+    queryOptions =
       id: pageId
 
-    spClient.apiCall 'Members.override', params, overrideCB
+    spClient.apiCall 'Members.get', queryOptions, fetchPermissionCB
 
   # 5. get user-id
   inviteCB = (err, data) ->
