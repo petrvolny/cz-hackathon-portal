@@ -28,7 +28,7 @@ app.get('/', function(request, response) {
 app.get('/registration-hook', function(request, response) {
   var options = {eid: request.query.eid, oid: request.query.oid};
   response.end('Please, confirm your invation - received by e-mail - to Czech Hackathon portal hosted at Samepage.io.');
-  //response.redirect('http://www.czechhackathon.cz/registration-complete');
+  response.redirect('http://www.czechhackathon.cz/#registration-complete');
   runHook(options);
 });
 
