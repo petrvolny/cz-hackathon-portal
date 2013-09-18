@@ -334,6 +334,57 @@ section {
 }
 
 ////////////////////////////////////////////////////////////////////////
+// register
+.register {
+    color: #000;
+    background: #ef6233;
+
+    > h2 {
+        color: #fff;
+    }
+
+    .icon-rocket {
+        font-size: 80px;
+        color: #ac4625;
+        margin: 0 auto 20px auto;
+        width: 100px;
+        height: 100px;
+    }
+
+    > a:hover {
+        text-decoration: none;
+    }
+
+    .register-button {
+        width: 675px;
+        height: 62px;
+
+        margin: 0 auto 50px auto;
+        padding: 0;
+        line-height: 62px;
+        font-size: 25px;
+        background: #ac4625;
+        color: #000;
+
+        border-bottom-width:5px;
+        border-bottom-style: solid;
+        border-color: rgb(127,62,38);
+
+        &:hover,
+        &:focus,
+        &:active {
+            @extend %no-outline;
+            background: darken(#ac4625, 5%);
+        }
+
+        @include respond-to(handhelds) {
+            width: 100%;
+        }
+    }
+
+}
+
+////////////////////////////////////////////////////////////////////////
 // subscribe
 
 %no-outline {
