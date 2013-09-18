@@ -9,11 +9,9 @@ app.use(function(req, res, next) {
         redirect_host = url.parse(redirect_url).host,
         requested_host = req.header("host").split(":")[0];
 
-    // console.log("=============== " + requested_host + " ===============");
-    if (requested_host === "localhost" || requested_host === redirect_host) {
+    if (requested_host === "localhost" || requested_host === "czhackathon-dev.herokuapp.com" || requested_host === redirect_host) {
         next();
     } else {
-        // console.log("===============R: " + redirect_url+req.path + " ===============");
         res.redirect(301, redirect_url+req.path);
     }
 });
