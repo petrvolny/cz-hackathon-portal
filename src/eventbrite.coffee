@@ -21,7 +21,8 @@ exports.run = (options) ->
 
   callback = (err, data) ->
 
-    throw err if err?
+    if err?
+      console.log err
 
     options = null
     for att in data.attendees
