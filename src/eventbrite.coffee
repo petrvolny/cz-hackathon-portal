@@ -17,12 +17,14 @@ ebClient = Eventbrite
 
 exports.run = (options) ->
 
+  console.log options # log EID and OID
   orderId = options.oid
 
   callback = (err, data) ->
 
     if err?
       console.log err
+      return
 
     options = null
     for att in data.attendees
@@ -35,7 +37,7 @@ exports.run = (options) ->
         for ans in attendee.answers
           answer = ans.answer
 
-          text = "#{answer.question}: #{answer.answer_text}" # answer.question_id
+          text = "#{answer.question}: #{answer.answer_text}"
 
           if pageText is null
             pageText = text
