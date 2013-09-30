@@ -570,6 +570,12 @@ section {
 .image-jezek {
     background: url('../images/jan_jezek.png') no-repeat;
 }
+.image-prskavec {
+    background: url('../images/ladislav_prskavec.png') no-repeat;
+}
+.image-vavra {
+    background: url('../images/david_vavra.png') no-repeat;
+}
 
 .superhero-item {
     @include clearfix();
