@@ -559,6 +559,7 @@ section {
     table-layout: fixed;
     width: 100%;
 
+
 }
 
 .image-volny {
@@ -599,6 +600,14 @@ section {
         @extend %cell;
         padding-left: 30px;
         font-size: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        &:hover {
+            color: #000;
+        }
     }
 }
 
