@@ -550,6 +550,12 @@ section {
 ////////////////////////////////////////////////////////////////////////
 // schedule
 
+.schedule {
+    h2 {
+        margin: .5em 0 0.3em;
+    }
+}
+
 .schedule-content {
     max-width: 700px;
     margin: 0 auto 70px;
@@ -587,14 +593,16 @@ section {
 .superheroes {
     color: #fff;
     background: #34495e;
+
+    .container {
+        max-width: 730px;
+    }
 }
 
 .superheroes-items {
     display: table;
     table-layout: fixed;
     width: 100%;
-
-
 }
 
 .image-volny {
