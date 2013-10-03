@@ -546,6 +546,41 @@ section {
     background: #34495e;
 }
 
+
+////////////////////////////////////////////////////////////////////////
+// schedule
+
+.schedule-content {
+    max-width: 700px;
+    margin: 0 auto 70px;
+    font-size: 20px;
+    color: #333;
+
+    .schedule-line {
+        display:block;
+        margin-bottom: 10px;
+        clear: both;
+    }
+
+    .schedule-time {
+        margin:0px;
+        float:left;
+        padding-right: 3px;
+    }
+
+    .schedule-dots {
+        overflow: hidden;
+        height: 20px;
+        border-bottom: 3px dotted #aaa;
+    }
+
+    .schedule-event {
+        float: right;
+        padding-left: 3px;
+    }
+}
+
+
 ////////////////////////////////////////////////////////////////////////
 // superheroes
 
