@@ -59,6 +59,10 @@ $desktops: 992px;
     }
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 .l-prev {
     float: left;
 }
@@ -356,10 +360,78 @@ section {
 }
 
 ////////////////////////////////////////////////////////////////////////
+// winners
+.winners {
+    color: #000;
+    background: #ef6233;
+
+    > h2 {
+        color: #fff;
+    }
+
+    .icon-trophy {
+        font-size: 120px;
+        color: #ac4625;
+        margin: 50px auto 20px auto;
+        width: 120px;
+        height: 90px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+.winners-container {
+    height: 350px;
+}
+
+.box-left {
+    width: 33.3%;
+    float: left;
+}
+
+.box-center {
+    width: 33.3%;
+    float: left;
+}
+
+.box-right {
+    width: 33.3%;
+    float: right;
+    clear: none;
+}
+
+.place {
+    font-family: 'bebas_neueregular';
+    color: #ac4625;
+    font-size: 35px;
+}
+
+.members {
+    font-size: 20px;
+}
+
+.icon-github {
+    font-size: 120px;
+    color: #ac4625;
+    margin: 90px auto 20px auto;
+    width: 100px;
+    height: 60px;
+}
+
+////////////////////////////////////////////////////////////////////////
 // register
+
 .register {
     color: #000;
     background: #ef6233;
+
+
 
     > h2 {
         color: #fff;
@@ -370,7 +442,7 @@ section {
         color: #ac4625;
         margin: 0 auto 20px auto;
         width: 100px;
-        height: 100px;
+        height: 60px;
     }
 
     > a:hover {
